@@ -9,11 +9,14 @@ public class PlayerController : MonoBehaviour
     private float rotation = 0.0f;
     [SerializeField] private float rotationSpeed = 0.8f;
 
+    private float vertical;
+
     void Update()
     {
-        transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical") * speed);
+        vertical = Input.GetAxis("Vertical");
         
         rotation += Input.GetAxis("Horizontal");
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f) * rotationSpeed);
+        transform.position = transform.position + (transform.forward * vertical * speed);
     }
 }
