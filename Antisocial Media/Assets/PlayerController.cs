@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private float vertical;
 
+    public Transform range;
+
     void Update()
     {
         vertical = Input.GetAxis("Vertical");
@@ -18,5 +20,11 @@ public class PlayerController : MonoBehaviour
         rotation += Input.GetAxis("Horizontal");
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f) * rotationSpeed);
         transform.position = transform.position + (transform.forward * vertical * speed);
+        
+        if (Physics.Linecast(transform.position, range.position, 3, QueryTriggerInteraction.Collide) && Input.GetKeyDown("space")) 
+        {
+            Debug.Log("Fire");
+        }
+
     }
 }
