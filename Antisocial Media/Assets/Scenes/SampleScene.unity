@@ -1054,8 +1054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f77b2d2402599d499607b04c6425462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0015
-  rotationSpeed: 0.15
+  speed: 0.005
+  rotationSpeed: 0.8
   range: {fileID: 1305336367}
 --- !u!4 &1157578304
 Transform:
