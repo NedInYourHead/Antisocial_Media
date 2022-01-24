@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private float vertical;
 
-    public Transform range;
+    [SerializeField] private Transform range;
+    [SerializeField] private GameObject monster;
 
     void Update()
     {
@@ -26,5 +27,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Fire");
         }
 
+    }
+
+    void OnTriggerEnter(Collider monster) 
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/MenuScreen.unity");
     }
 }
