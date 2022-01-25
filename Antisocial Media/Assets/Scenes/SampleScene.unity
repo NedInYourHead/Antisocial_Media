@@ -210,6 +210,10 @@ PrefabInstance:
       value: Maze
       objectReference: {fileID: 0}
     - target: {fileID: 4495414801083549842, guid: 42bc049b24acbdb40815126c00a0659d, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495414801083549842, guid: 42bc049b24acbdb40815126c00a0659d, type: 3}
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
@@ -603,10 +607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f77b2d2402599d499607b04c6425462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.005
-  rotationSpeed: 0.8
+  speed: 0.0125
+  rotationSpeed: 2
   range: {fileID: 1305336367}
-  monster: {fileID: 0}
+  monster: {fileID: 2145857365}
 --- !u!4 &1157578304
 Transform:
   m_ObjectHideFlags: 0
@@ -694,7 +698,7 @@ GameObject:
   - component: {fileID: 2145857368}
   - component: {fileID: 2145857367}
   - component: {fileID: 2145857366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Monster
   m_TagString: Monster
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

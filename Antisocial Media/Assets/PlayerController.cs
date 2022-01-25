@@ -14,18 +14,38 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform range;
     [SerializeField] private GameObject monster;
 
+    private bool firing = false;
+
     void Update()
     {
+        /*if (Physics.Linecast(transform.position, range.position))
+        {*/
+        //Debug.Log(Physics.Linecast(transform.position, range.position));
+            if (Input.GetKeyDown("space"))
+            {
+                if (Physics.Linecast(transform.position, range.position, 3, QueryTriggerInteraction.Collide))
+                {
+                    Debug.Log("Fire");
+                    firing = true;
+                }
+            }
+            else
+            {
+                firing = false;
+            }
+        /*}*/
+    }
+
+    void FixedUpdate()
+    {
         vertical = Input.GetAxis("Vertical");
-        
+
         rotation += Input.GetAxis("Horizontal");
-        transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f) * rotationSpeed);
+
         transform.position = transform.position + (transform.forward * vertical * speed);
-        
-        if (Physics.Linecast(transform.position, range.position, 3, QueryTriggerInteraction.Collide) && Input.GetKeyDown("space")) 
-        {
-            Debug.Log("Fire");
-        }
+
+        transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f) * rotationSpeed);
+
 
     }
 
