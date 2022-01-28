@@ -11,29 +11,33 @@ public class PlayerController : MonoBehaviour
 
     private float vertical;
 
-    [SerializeField] private Transform range;
     [SerializeField] private GameObject monster;
 
     private bool firing = false;
 
+    [SerializeField] private float range = 10.0f;
+    RaycastHit hit;
+    public Camera camera;
+
+    [SerializeField] LayerMask rayCast;
+
     void Update()
     {
-        /*if (Physics.Linecast(transform.position, range.position))
-        {*/
-        //Debug.Log(Physics.Linecast(transform.position, range.position));
-            if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
+        {
+            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range, rayCast, QueryTriggerInteraction.Collide))
             {
-                if (Physics.Linecast(transform.position, range.position, 3, QueryTriggerInteraction.Collide))
+                if (hit.transform.name == "Monster")
                 {
-                    Debug.Log("Fire");
+                    Debug.Log("Hit Monster");
                     firing = true;
                 }
             }
-            else
-            {
-                firing = false;
-            }
-        /*}*/
+        }
+        else
+        {
+            firing = false;
+        }
     }
 
     void FixedUpdate()
