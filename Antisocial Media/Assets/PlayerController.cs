@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //forward/backward input and speed multiplier
+    private float vertical;
     [SerializeField] private float speed = 0.002f;
-    
+
+    //rotation input and speed multiplier
     private float rotation = 0.0f;
     [SerializeField] private float rotationSpeed = 0.8f;
+    
 
-    private float vertical;
-
+    // monster gameobject to use its box collider
     [SerializeField] private GameObject monster;
 
-    private bool firing = false;
 
+
+    //Raycast arguements
     [SerializeField] private float range = 10.0f;
     RaycastHit hit;
-    public Camera camera;
-
+    [SerializeField] private Camera camera;
+    //player hitbox isn't counted in the raycast collision
     [SerializeField] LayerMask rayCast;
 
     void Update()
@@ -30,13 +34,8 @@ public class PlayerController : MonoBehaviour
                 if (hit.transform.name == "Monster")
                 {
                     Debug.Log("Hit Monster");
-                    firing = true;
                 }
             }
-        }
-        else
-        {
-            firing = false;
         }
     }
 
