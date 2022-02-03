@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (hit.transform.name == "Monster")
                 {
-                    Debug.Log("Hit Monster");
+                    FindObjectOfType<MonsterController>().Dying();
                 }
             }
         }
