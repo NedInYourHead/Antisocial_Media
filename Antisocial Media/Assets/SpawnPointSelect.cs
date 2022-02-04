@@ -37,6 +37,6 @@ public class SpawnPointSelect : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(FindFurthestSpawn().gameObject);
+        //Debug.Log(FindFurthestSpawn().gameObject);
     }
 }

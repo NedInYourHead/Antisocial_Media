@@ -7,7 +7,6 @@ public class MonsterController : MonoBehaviour
 {
     [SerializeField] private Transform player;
     NavMeshAgent agent;
-    [SerializeField] private GameObject respawnPoint;
     [SerializeField] private float speedIncrease = 1.05f;
 
     private void Start()
@@ -23,8 +22,11 @@ public class MonsterController : MonoBehaviour
     }
     public void Dying()
     {
+        agent.enabled = false;
         GameObject spawnPoint = FindObjectOfType<SpawnPointSelect>().FindFurthestSpawn();
+        Debug.Log(spawnPoint.transform.position);
         transform.position = spawnPoint.transform.position;
         agent.speed = agent.speed * speedIncrease;
+        agent.enabled = true;
     }
 }
