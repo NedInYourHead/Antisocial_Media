@@ -29,6 +29,6 @@ public class MonsterController : MonoBehaviour
         transform.position = spawnPoint.transform.position;
         agent.speed = agent.speed * speedIncrease;
         agent.enabled = true;
-        speedIncrease = speedIncrease * speedIncreaseDecrease;
+        speedIncrease = speedIncrease - speedIncreaseDecrease;
     }
 }
