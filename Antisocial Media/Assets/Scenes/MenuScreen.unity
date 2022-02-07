@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2e5a941d400ec4990ed3a8ec017a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: Assets/Scenes/SampleScene.unity
 --- !u!4 &1165218024
 Transform:
   m_ObjectHideFlags: 0

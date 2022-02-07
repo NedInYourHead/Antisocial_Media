@@ -52,8 +52,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider monster) 
+    void OnTriggerEnter(Collider col) 
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/MenuScreen.unity");
+        if (col.transform.tag == "Monster")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/MenuScreen.unity");
+        }
+        else if (col.transform.tag == "End")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/WinScreen.unity");
+        }
+
     }
 }
