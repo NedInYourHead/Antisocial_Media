@@ -35,10 +35,9 @@ public class MonsterController : MonoBehaviour
 
         Physics.Linecast(transform.position, player.position, out hit);
 
-        if ((hit.distance < centreCheckDist) && centre.outOfSight && (!checkingDist)) 
+        if ((hit.distance > centreCheckDist) && centre.outOfSight && !checkingDist) 
         {
             Debug.Log("checked distance1");
-            Debug.Log(hit.distance);
             StartCoroutine(TeleToCentre());
         }
     }
@@ -48,16 +47,15 @@ public class MonsterController : MonoBehaviour
         checkingDist = true;
         yield return new WaitForSeconds(centreCheckTime);
 
-        Physics.Linecast(transform.position, player.position, out hit);
-        if ((hit.distance < centreCheckDist) && centre.outOfSight)
+        if ((hit.distance > centreCheckDist) && centre.outOfSight)
         {
             agent.enabled = false;
-            Debug.Log(hit.distance);
+            Debug.Log(centre.transform.position);
             transform.position = centre.transform.position;
             agent.enabled = true;
-            Debug.Log("checked distance2");
-            Debug.Log(hit.distance);
         }
+        Debug.Log("checked distance2");
+        Debug.Log(hit.distance);
         checkingDist = false;
     }
 

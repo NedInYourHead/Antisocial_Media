@@ -726,7 +726,7 @@ MonoBehaviour:
   speedIncrease: 1
   speedIncreaseDecrease: 0.66
   centreCheckTime: 5
-  centreCheckDist: 1
+  centreCheckDist: 2
 --- !u!195 &666040530
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -757,7 +757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666040528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.08, y: 0, z: -1.98}
+  m_LocalPosition: {x: 3.87, y: 0, z: -2}
   m_LocalScale: {x: 1.0038404, y: 0.9780998, z: 1.2548004}
   m_Children:
   - {fileID: 2145857369}
