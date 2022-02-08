@@ -6,7 +6,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637795671658454504
+      ticks: 637783607472461026
     m_Hash: 2473341795
   m_LockFileStatus:
     m_FilePath: C:/Users/ncorney2021/Documents/GitHub/Antisocial_Media/Antisocial
@@ -15,7 +15,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637795671658454504
+      ticks: 637783607472461026
     m_Hash: 1383147997
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -94,16 +94,6 @@ m_PackageAssets:
         - 2.1.0-preview.5
         - 2.1.0-preview.6
         compatible:
-        - 1.9.0
-        - 1.10.2
-        - 1.11.2
-        - 1.12.5
-        - 1.13.5
-        - 1.14.1
-        - 1.14.4
-        - 1.14.7
-        - 1.14.9
-        - 1.14.12
         - 1.15.1
         - 1.15.4
         - 1.15.7
@@ -119,7 +109,7 @@ m_PackageAssets:
         - 2.1.0-preview.3
         - 2.1.0-preview.5
         - 2.1.0-preview.6
-        verified: 1.9.0
+        verified: 1.15.12
       dependencies:
       - name: com.unity.nuget.newtonsoft-json
         version: 2.0.0
@@ -2877,4 +2867,4 @@ m_PackageAssets:
     m_LocalFileStatus: []
 m_ProjectPath: C:/Users/ncorney2021/Documents/GitHub/Antisocial_Media/Antisocial
   Media/Packages
-m_EditorVersion: 2020.3.19f1 (68f137dc9bbe)
+m_EditorVersion: 2020.3.23f1 (c5d91304a876)

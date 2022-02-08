@@ -725,6 +725,8 @@ MonoBehaviour:
   centre: {fileID: 0}
   speedIncrease: 1
   speedIncreaseDecrease: 0.66
+  centreCheckTime: 5
+  centreCheckDist: 2
 --- !u!195 &666040530
 NavMeshAgent:
   m_ObjectHideFlags: 0
