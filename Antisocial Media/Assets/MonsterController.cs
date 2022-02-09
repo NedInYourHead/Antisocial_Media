@@ -7,11 +7,13 @@ public class MonsterController : MonoBehaviour
 {
     [SerializeField] private Transform player;
     NavMeshAgent agent;
-    private float speed = 0.2f;
+    [SerializeField]private float speed = 0.2f;
     [SerializeField] private float speedIncrease = 2.0f;
     [SerializeField] private float speedIncreaseDecrease = 0.33f;
+    private float distance;
+    [SerializeField] private float howCloseToSlowDown = 0.5f;
     [SerializeField] private LayerMask layerMask;
-    RaycastHit hit;
+    public RaycastHit hit;
 
     private void Start()
     {
@@ -20,15 +22,16 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
+        distance = hit.distance + howCloseToSlowDown;
         transform.LookAt(player);
 
         agent.SetDestination(player.position);
 
         Physics.Linecast(transform.position,player.position, out hit, layerMask);
         
-        if (hit.distance >= 1.0f)
+        if (distance >= 1.0f)
         {
-            agent.speed = speed * hit.distance;
+            agent.speed = speed * distance;
         }
         else
         {
@@ -39,10 +42,9 @@ public class MonsterController : MonoBehaviour
     {
         agent.enabled = false;
         GameObject spawnPoint = FindObjectOfType<SpawnPointSelect>().FindFurthestSpawn();
-        Debug.Log(spawnPoint.transform.position);
         transform.position = spawnPoint.transform.position;
         agent.enabled = true;
-        speed = speed * speedIncrease;
-        speedIncrease = speedIncrease - speedIncreaseDecrease;
+        speed = speed * (speedIncrease + 1f);
+        speedIncrease = speedIncrease * speedIncreaseDecrease;
     }
 }

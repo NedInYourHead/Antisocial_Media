@@ -13,7 +13,7 @@ public class RespawnPriority : MonoBehaviour
     {
         if (Physics.Linecast(transform.position, player.position, out hit, layerMask))
         {
-            priority = hit.distance;
+            priority = (hit.distance * -1);
         }
 
     }

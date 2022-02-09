@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
                 if (hit.transform.name == "Monster")
                 {
                     FindObjectOfType<MonsterController>().Dying();
+                    StartCoroutine(Flash());
                 }
             }
         }
@@ -49,6 +50,14 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f) * rotationSpeed);
 
+
+    }
+
+    IEnumerator Flash()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1;
 
     }
 
