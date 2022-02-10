@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
                 upload.enabled = false;
             }
         }
+        else
+        {
+            upload.enabled = false;
+        }
     }
 
 

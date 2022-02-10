@@ -13,6 +13,7 @@ public class MonsterController : MonoBehaviour
     private float distance;
     [SerializeField] private float howCloseToSlowDown = 0.5f;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField]private Light myLight;
     public RaycastHit hit;
     private bool isDying;
 
@@ -52,6 +53,11 @@ public class MonsterController : MonoBehaviour
         agent.enabled = true;
         speed = speed * (speedIncrease + 1f);
         speedIncrease = speedIncrease * speedIncreaseDecrease;
+        myLight.intensity += 0.5f;
+        if (speed > 1.5)
+        {
+            myLight.color = (Color.red);
+        }
         isDying = false;
     }
 }
