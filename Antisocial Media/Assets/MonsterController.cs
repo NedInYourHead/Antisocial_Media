@@ -13,7 +13,7 @@ public class MonsterController : MonoBehaviour
     private float distance;
     [SerializeField] private float howCloseToSlowDown = 0.5f;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField]private Light myLight;
+    [SerializeField] private Light myLight;
     public RaycastHit hit;
     private bool isDying;
 
