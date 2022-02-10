@@ -24,20 +24,37 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera camera;
     //player hitbox isn't counted in the raycast collision
     [SerializeField] LayerMask rayCast;
+    [SerializeField] Sprite[] spriteList;
+    [SerializeField] SpriteRenderer post;
+    [SerializeField] SpriteRenderer upload;
+    int pictureIndex = 0;
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range, rayCast, QueryTriggerInteraction.Collide))
         {
-            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range, rayCast, QueryTriggerInteraction.Collide))
+            if (hit.transform.name == "Monster")
             {
-                if (hit.transform.name == "Monster")
+                upload.enabled = true;
+                if (Input.GetKeyDown("space"))
                 {
                     FindObjectOfType<MonsterController>().Dying();
+                    post.sprite = spriteList[pictureIndex];
+                    pictureIndex += 1;
+                    if (pictureIndex == spriteList.Length)
+                    {
+                        pictureIndex = 0;
+                    }
                 }
+            }
+            else
+            {
+                upload.enabled = false;
             }
         }
     }
+
+
 
     void FixedUpdate()
     {
@@ -63,5 +80,15 @@ public class PlayerController : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/WinScreen.unity");
         }
 
+    }
+
+    private void Start()
+    {
+        post.sprite = spriteList[pictureIndex];
+        pictureIndex += 1;
+        if (pictureIndex == spriteList.Length)
+        {
+            pictureIndex = 0;
+        }
     }
 }
