@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Sprite[] spriteList;
     [SerializeField] SpriteRenderer post;
     [SerializeField] SpriteRenderer upload;
-    //[SerializeField] MeshRenderer endText;
     int pictureIndex = 0;
 
     void Update()
@@ -72,11 +71,6 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f) * rotationSpeed);
 
 
-    }
-
-    public float GetRotation()
-    {
-        return rotation;
     }
 
     void OnTriggerEnter(Collider col) 
