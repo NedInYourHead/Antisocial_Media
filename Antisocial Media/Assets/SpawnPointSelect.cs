@@ -23,7 +23,7 @@ public class SpawnPointSelect : MonoBehaviour
         foreach(RespawnPriority currentRespawnPoint in spawnPoints)
         {
             //fetches distance of selected point
-            currentDistance = currentRespawnPoint.Distance();
+            currentDistance = Vector3.Distance(currentRespawnPoint.transform.position, FindObjectOfType<MonsterController>().transform.position);
             //if further than currentfurthest select new object
             if (currentDistance > currentFurthest)
             {
@@ -32,6 +32,8 @@ public class SpawnPointSelect : MonoBehaviour
             }
         }
         //returns the gameobject of furthest spawn point
+        Debug.Log(chosenSpawnPoint);
         return chosenSpawnPoint.gameObject;
+
     }
 }

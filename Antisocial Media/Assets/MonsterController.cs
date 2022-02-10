@@ -14,6 +14,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private float howCloseToSlowDown = 0.5f;
     [SerializeField] private LayerMask layerMask;
     public RaycastHit hit;
+    private bool isDying;
 
     private void Start()
     {
@@ -25,7 +26,11 @@ public class MonsterController : MonoBehaviour
         distance = hit.distance + howCloseToSlowDown;
         transform.LookAt(player);
 
-        agent.SetDestination(player.position);
+        if(!isDying) 
+        {
+            agent.SetDestination(player.position);
+        }
+        
 
         Physics.Linecast(transform.position,player.position, out hit, layerMask);
         
@@ -40,11 +45,13 @@ public class MonsterController : MonoBehaviour
     }
     public void Dying()
     {
+        isDying = true;
         agent.enabled = false;
         GameObject spawnPoint = FindObjectOfType<SpawnPointSelect>().FindFurthestSpawn();
         transform.position = spawnPoint.transform.position;
         agent.enabled = true;
         speed = speed * (speedIncrease + 1f);
         speedIncrease = speedIncrease * speedIncreaseDecrease;
+        isDying = false;
     }
 }
