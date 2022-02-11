@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.transform.tag == "Monster")
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/MenuScreen.unity");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/DeathScreen.unity");
         }
         else if (col.transform.tag == "End")
         {
