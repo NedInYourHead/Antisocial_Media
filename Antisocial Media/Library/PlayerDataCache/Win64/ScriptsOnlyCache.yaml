@@ -669,4 +669,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/WinScreen.unity
   - Assets/Scenes/DeathScreen.unity
-  playerPath: C:/Users/ncorney2021/Documents/GitHub/Antisocial_Media/Antisocial Media.exe
+  playerPath: C:/Users/ncorney2021/Documents/GitHub/Antisocial_Media/Build/Antisocial
+    Media.exe
