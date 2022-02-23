@@ -24,40 +24,57 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera camera;
     //player hitbox isn't counted in the raycast collision
     [SerializeField] LayerMask rayCast;
+
+    //post/upload variables
     [SerializeField] Sprite[] spriteList;
     [SerializeField] SpriteRenderer post;
     [SerializeField] SpriteRenderer upload;
+    [SerializeField] private int postCooldown = 8;
+    private bool postOnCooldown = false;
     int pictureIndex = 0;
 
     void Update()
     {
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range, rayCast, QueryTriggerInteraction.Collide))
+        if (!postOnCooldown)
         {
-            if (hit.transform.name == "Monster")
+
+            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range, rayCast, QueryTriggerInteraction.Collide))
             {
-                upload.enabled = true;
-                if (Input.GetKeyDown("space"))
+                if (hit.transform.name == "Monster")
                 {
-                    FindObjectOfType<MonsterController>().Dying();
-                    post.sprite = spriteList[pictureIndex];
-                    pictureIndex += 1;
-                    if (pictureIndex == spriteList.Length)
+                    upload.enabled = true;
+                    if (Input.GetKeyDown("space"))
                     {
-                        pictureIndex = 0;
+                        FindObjectOfType<MonsterController>().Dying();
+                        upload.enabled = false;
+                        StartCoroutine(UploadCooldown());
+                        post.sprite = spriteList[pictureIndex];
+                        pictureIndex += 1;
+
+                        if (pictureIndex == spriteList.Length)
+                        {
+                            pictureIndex = 0;
+                        }
                     }
                 }
+                else
+                {
+                    upload.enabled = false;
+                }
             }
-            else
-            {
-                upload.enabled = false;
-            }
-        }
-        else
-        {
-            upload.enabled = false;
         }
     }
 
+    IEnumerator UploadCooldown()
+    {
+        Debug.Log("Start Cooldown");
+        postOnCooldown = true;
+        post.enabled = false;
+        yield return new WaitForSeconds(postCooldown);
+        postOnCooldown = false;
+        post.enabled = true;
+        Debug.Log("Finished Cooldown");
+    }
 
 
     void FixedUpdate()
