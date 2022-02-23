@@ -27,11 +27,16 @@ public class PlayerController : MonoBehaviour
 
     //post/upload variables
     [SerializeField] Sprite[] spriteList;
-    [SerializeField] SpriteRenderer post;
+    [SerializeField] SpriteRenderer postRenderer;
     [SerializeField] SpriteRenderer upload;
     [SerializeField] private int postCooldown = 8;
     private bool postOnCooldown = false;
+    private bool endOfCooldown = false;
     int pictureIndex = 0;
+    [SerializeField] private float fadeSpeed = 1f;
+    private float alpha = 1f;
+    Color newColor = new Color(1f, 1f, 1f, 1f);
+    
 
     void Update()
     {
@@ -48,7 +53,7 @@ public class PlayerController : MonoBehaviour
                         FindObjectOfType<MonsterController>().Dying();
                         upload.enabled = false;
                         StartCoroutine(UploadCooldown());
-                        post.sprite = spriteList[pictureIndex];
+                        postRenderer.sprite = spriteList[pictureIndex];
                         pictureIndex += 1;
 
                         if (pictureIndex == spriteList.Length)
@@ -67,13 +72,12 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator UploadCooldown()
     {
-        Debug.Log("Start Cooldown");
         postOnCooldown = true;
-        post.enabled = false;
+        postRenderer.enabled = false;
         yield return new WaitForSeconds(postCooldown);
-        postOnCooldown = false;
-        post.enabled = true;
-        Debug.Log("Finished Cooldown");
+        alpha = 0f;
+        endOfCooldown = true;
+        postRenderer.enabled = true;
     }
 
 
@@ -88,6 +92,17 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f) * rotationSpeed);
 
 
+        if (endOfCooldown)
+        {
+            alpha += fadeSpeed * Time.deltaTime;
+            newColor.a = alpha;
+            if (alpha >= 1f)
+            {
+                endOfCooldown = false;
+                postOnCooldown = false;
+            }
+            postRenderer.color = newColor;
+        }
     }
 
     void OnTriggerEnter(Collider col) 
@@ -105,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        post.sprite = spriteList[pictureIndex];
+        postRenderer.sprite = spriteList[pictureIndex];
         pictureIndex += 1;
         if (pictureIndex == spriteList.Length)
         {

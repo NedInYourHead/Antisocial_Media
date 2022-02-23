@@ -32,7 +32,6 @@ public class SpawnPointSelect : MonoBehaviour
             }
         }
         //returns the gameobject of furthest spawn point
-        Debug.Log(chosenSpawnPoint);
         return chosenSpawnPoint.gameObject;
 
     }

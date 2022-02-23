@@ -557,7 +557,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: d3b5f1b977602a64a1509e8f7b946129
+      Hash: 680b1b1840ce9824cb6a31366d488f10
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -669,5 +669,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/WinScreen.unity
   - Assets/Scenes/DeathScreen.unity
-  playerPath: C:/Users/ncorney2021/Documents/GitHub/Antisocial_Media/Build/Antisocial
-    Media.exe
+  playerPath: C:/Users/mediatrainee4/Documents/User/Build/Antisocial Media.exe
