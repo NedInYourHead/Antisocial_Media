@@ -38,7 +38,7 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2684}
+      Script: {instanceID: 2694}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -67,17 +67,17 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1996}
+      Script: {instanceID: 2006}
     - Class: 114
-      Script: {instanceID: 2282}
+      Script: {instanceID: 2292}
     - Class: 114
-      Script: {instanceID: 2394}
+      Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 2560}
+      Script: {instanceID: 2570}
     - Class: 114
-      Script: {instanceID: 2684}
+      Script: {instanceID: 2694}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2758}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -134,15 +134,15 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2524}
-    - Class: 114
       Script: {instanceID: 2534}
     - Class: 114
-      Script: {instanceID: 2672}
+      Script: {instanceID: 2544}
     - Class: 114
-      Script: {instanceID: 3324}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 3438}
+      Script: {instanceID: 3334}
+    - Class: 114
+      Script: {instanceID: 3448}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 134
@@ -181,17 +181,17 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1996}
+      Script: {instanceID: 2006}
     - Class: 114
-      Script: {instanceID: 2282}
+      Script: {instanceID: 2292}
     - Class: 114
-      Script: {instanceID: 2394}
+      Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 2560}
+      Script: {instanceID: 2570}
     - Class: 114
-      Script: {instanceID: 2684}
+      Script: {instanceID: 2694}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2758}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -669,4 +669,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/WinScreen.unity
   - Assets/Scenes/DeathScreen.unity
-  playerPath: C:/Users/mediatrainee4/Documents/User/Build/Antisocial Media.exe
+  playerPath: C:/Users/ncorney2021/Documents/GitHub/Antisocial_Media/Build/Antisocial
+    Media.exe

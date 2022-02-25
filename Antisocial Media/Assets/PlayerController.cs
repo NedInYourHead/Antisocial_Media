@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range, rayCast, QueryTriggerInteraction.Collide))
             {
-                if (hit.transform.name == "Monster")
+                if (hit.transform.name == "MonsterOrigin")
                 {
                     upload.enabled = true;
                     if (Input.GetKeyDown("space"))
